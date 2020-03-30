@@ -77,54 +77,6 @@
         </dependency>
     </dependencies>
 
-
-    <!--maven私库配置-->
-    <distributionManagement>
-        <repository>
-            <id>base-release</id>
-            <name>Jyblife Nexus Release Repository</name>
-            <url>http://maven.jyblife.com/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>base-snapshot</id>
-            <name>Jyblife Nexus Snapshot Repository</name>
-            <url>http://maven.jyblife.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-    <!--远程仓库配置 -->
-    <repositories>
-        <repository>
-            <id>base-public</id>
-            <url>http://maven.jyblife.com/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>base-release</id>
-            <url>http://maven.jyblife.com/repository/maven-releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>base-snapshot</id>
-            <url>http://maven.jyblife.com/repository/maven-snapshots/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
