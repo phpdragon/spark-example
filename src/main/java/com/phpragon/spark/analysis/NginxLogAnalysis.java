@@ -38,6 +38,13 @@ public class NginxLogAnalysis {
         INPUT_TXT_PATH = "hdfs://172.16.1.126:9000/flume/nginx_logs/" + datetime + "/*.log";
     }
 
+    /**
+     * 请现在配置nginx日志格式和安装flume
+     * 文件：本项目根目录 test/nginx_log
+     * 参考：
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         SparkSession spark = SparkSession
                 .builder()
