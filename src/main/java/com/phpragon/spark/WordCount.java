@@ -32,13 +32,13 @@ public class WordCount {
             log.error("invalid params!");
         }
 
-//        String hdfsHost = args[0];
-//        String hdfsPort = args[1];
-//        String textFileName = args[2];
+        String hdfsHost = args[0];
+        String hdfsPort = args[1];
+        String textFileName = args[2];
 
-        String hdfsHost = "172.16.1.126";
-        String  hdfsPort = "9000";
-        String textFileName = "test.txt";
+//        String hdfsHost = "172.16.1.126";
+//        String  hdfsPort = "9000";
+//        String textFileName = "test.txt";
 
         SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("Spark WordCount Application(Java)");
 

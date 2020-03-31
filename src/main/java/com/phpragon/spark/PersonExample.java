@@ -28,8 +28,10 @@ public class PersonExample {
 
     private static String DB_TABLE_NAME = "t_person";
 
+    //TODO: 请设置你自己的服务器路径
     private static String INPUT_TXT_PATH = "hdfs://172.16.1.126:9000/test/person.txt";
 
+    //TODO: 请设置你自己的服务器路径
     private static String OUTPUT_PATH = "hdfs://172.16.1.126:9000/test/";
 
 //    private static String INPUT_TXT_PATH = "test/person.txt";
@@ -38,12 +40,12 @@ public class PersonExample {
 
     public static void readPersonData(SparkSession spark) {
         // 通过一个文本文件创建Person对象的RDD
-        JavaRDD<ReadHdfsFile.Person> peopleRDD = spark.read()
+        JavaRDD<Person> peopleRDD = spark.read()
                 .textFile(INPUT_TXT_PATH)
                 .javaRDD()
                 .map(line -> {
                     String[] parts = line.split(",");
-                    ReadHdfsFile.Person person = new ReadHdfsFile.Person();
+                    Person person = new Person();
                     person.setId(Integer.parseInt(parts[0].trim()));
                     person.setName(parts[1].trim());
                     person.setAge(Integer.parseInt(parts[2].trim()));
@@ -51,7 +53,7 @@ public class PersonExample {
                 });
 
         // 对JavaBeans的RDD指定schema得到DataFrame
-        Dataset<Row> peopleDF = spark.createDataFrame(peopleRDD, ReadHdfsFile.Person.class);
+        Dataset<Row> peopleDF = spark.createDataFrame(peopleRDD,Person.class);
 
         //输出数据结构
         peopleDF.show();
@@ -159,18 +161,18 @@ public class PersonExample {
         //可以通过创建一个实现Serializable接口和包含所有fields的getters和setters方法的类来创建一个JavaBean。
 
         //对JavaBeans的RDD指定schema得到DataFrame
-        JavaRDD<ReadHdfsFile.Person> personsRDD_2 = spark.read()
+        JavaRDD<Person> personsRDD_2 = spark.read()
                 .textFile("spark-warehouse/person.txt")
                 .toJavaRDD()
                 .map(line -> {
                     String[] parts = line.split(",");
-                    ReadHdfsFile.Person person = new ReadHdfsFile.Person();
+                    Person person = new Person();
                     person.setId(Integer.parseInt(parts[0]));
                     person.setName(parts[1]);
                     person.setAge(Integer.parseInt(parts[2]));
                     return person;
                 });
-        personsDataFrame = spark.createDataFrame(personsRDD_2, ReadHdfsFile.Person.class);
+        personsDataFrame = spark.createDataFrame(personsRDD_2, Person.class);
 
         //######################################################
 

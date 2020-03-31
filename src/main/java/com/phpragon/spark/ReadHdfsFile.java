@@ -18,8 +18,8 @@ public class ReadHdfsFile extends PersonExample {
         SparkSession spark = SparkSession
                 .builder()
                 .appName("NetworkWordCount(Java)")
+                //TODO: 本地执行请启用这个设置
                 //.master("local[*]")
-                //.master("spark://172.16.1.126:7077")
                 .getOrCreate();
 
         //数据库内容
