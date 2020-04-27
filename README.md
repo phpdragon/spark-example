@@ -30,7 +30,7 @@ test.txt
 ```
 
 ### 读取hdfs上的文件并输出
-- vi person.txt
+> vi person.txt
 ```xml
 1,zhangsan,20
 2,lisi,29
