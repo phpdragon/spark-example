@@ -1,5 +1,5 @@
 # spark-example
-Spark应用开发示例代码
+>Spark应用开发示例代码
 
 ### 环境搭建
 - Hadoop：[CentOS7 部署 Hadoop 3.2.1 (伪分布式)](https://www.cnblogs.com/phpdragon/p/12592572.html)
